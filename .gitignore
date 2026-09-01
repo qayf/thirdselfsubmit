@@ -1,5 +1,13 @@
 node_modules/
 data/
 .env
+
+# Streamlit secrets: SMTP credentials and editor passwords live here.
+.streamlit/secrets.toml
+
 .DS_Store
 npm-debug.log*
+__pycache__/
+*.pyc
+venv/
+.venv/

@@ -1,5 +1,12 @@
 # Third Self Project — Submissions
 
+> **Two versions live here.** `streamlit_app.py` is the Streamlit Cloud deployment
+> (see [Deploying on Streamlit Cloud](#deploying-on-streamlit-cloud)). `server.js` is the
+> original Node/Express version, which is better in every respect except that Streamlit
+> Cloud cannot run it. Both accept the same submissions and share the same design tokens.
+>
+> **Streamlit Cloud main file path: `streamlit_app.py`**
+
 A small, self-contained submission form for writers. Someone fills it in, attaches a PDF
 (or pastes their piece directly), and it lands on your server. You read everything at `/admin`.
 
@@ -158,8 +165,84 @@ file attached, in whatever inbox you point `NOTIFY_TO` at.
 ## Files
 
 ```
-server.js            Express app: validation, storage, admin inbox, optional email
-public/index.html    The form
-public/styles.css    Design tokens + all styling, shared with the inbox
-public/app.js        Upload/paste toggle, inline validation, receipt
+streamlit_app.py         Streamlit version — the Streamlit Cloud main file
+test_submission_flow.py  AppTest checks for the Streamlit version
+requirements.txt         Python dependency (streamlit)
+.streamlit/config.toml   Streamlit theme, matched to the palette
+
+server.js                Node/Express version: validation, storage, inbox, email
+public/index.html        The form
+public/styles.css        Design tokens + all styling, shared with the inbox
+public/app.js            Upload/paste toggle, inline validation, receipt
 ```
+
+## Deploying on Streamlit Cloud
+
+**Main file path: `streamlit_app.py`**
+
+1. Go to share.streamlit.io → New app → pick the `thirdselfsubmit` repo.
+2. Branch `main`, main file path `streamlit_app.py`.
+3. Before clicking Deploy, open **Advanced settings → Secrets** and paste the contents of
+   `.streamlit/secrets.toml.example` with your real values.
+4. Deploy. The inbox lives at `https://your-app.streamlit.app/?admin=1`.
+
+### The constraint you are deploying into
+
+Streamlit Community Cloud gives every app an **ephemeral filesystem**. It is wiped when the
+app sleeps, restarts, or redeploys — and Community Cloud apps sleep after a period of
+inactivity. Anything written to `data/` is temporary by definition.
+
+This app is built around that: **email is the archive.** Every accepted submission is sent to
+`NOTIFY_TO` with the manuscript attached, before the writer sees a confirmation. If the send
+fails, the writer is told to email you directly rather than being shown a false success.
+
+That means:
+
+- **Configure SMTP before you share the link.** Without it, the form still accepts work and
+  still says thank you, but the only copy dies with the container. The form shows a warning
+  banner while SMTP is unconfigured, visible to writers as well as to you.
+- **`/?admin=1` is a convenience, not a record.** It lists what arrived during the current
+  container's life. Your notification inbox is the real archive, and the inbox page says so.
+
+For Gmail, `SMTP_PASS` must be a 16-character **app password** (Google Account → Security →
+2-Step Verification → App passwords), not your account password.
+
+### Editors
+
+The `[editors]` table in secrets sets who can open the inbox:
+
+```toml
+[editors]
+mira = "long-random-password"
+rob = "a-different-one"
+```
+
+Sign-in uses `secrets.compare_digest`, so passwords are compared in constant time. Remove a
+person by deleting their line and rebooting the app.
+
+### Running the Streamlit version locally
+
+```bash
+python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+.venv/bin/streamlit run streamlit_app.py
+```
+
+Copy `.streamlit/secrets.toml.example` to `.streamlit/secrets.toml` for local secrets. That
+file is gitignored; the `.example` is not.
+
+### Tests
+
+```bash
+.venv/bin/python test_submission_flow.py
+```
+
+37 checks covering validation, storage, the receipt, the reset, and inbox authentication,
+using Streamlit's `AppTest` harness.
+
+### What the Streamlit version gives up
+
+Streamlit renders its own widget DOM, reachable only through injected CSS. The masthead, hero,
+typography, palette, cards, and receipt all carry over. The parts that do not: the segmented
+upload/paste control is a radio group, inline per-field error messages are one combined error
+at the top, and there is no drag-and-drop styling or live word count as you type. The Node
+version in `server.js` has all of those.
