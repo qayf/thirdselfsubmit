@@ -105,6 +105,17 @@ html, body, [data-testid="stAppViewContainer"] * {
   color: var(--ink);
 }
 
+/* Streamlit draws icons as ligatures in an icon font: the element's text is
+   literally "upload", and the font turns it into a glyph. The wildcard above
+   would override that font and render the raw word on top of the button's own
+   label, so icons must keep their own family. */
+[data-testid="stIconMaterial"],
+[data-testid^="stIcon"],
+.material-symbols-rounded,
+span[class*="material-symbols"] {
+  font-family: "Material Symbols Rounded" !important;
+}
+
 /* Streamlit's own heading rules outrank the wildcard above, so name ours. */
 .tsp-title, .tsp-section-head, .tsp-wordmark, .tsp-card h3,
 .tsp-entry h4, .tsp-receipt h2, .tsp-lede, .tsp-fact dd {
@@ -636,8 +647,10 @@ def render_form() -> None:
         upload = None
         pasted = ""
         if mode == "Upload a file":
+            # Streamlit prints its own "10MB per file • PDF, DOC…" line under the
+            # dropzone, so the label stays short instead of repeating it.
             upload = st.file_uploader(
-                f"Your manuscript — PDF, DOC, DOCX, TXT, RTF, or MD, up to {MAX_UPLOAD_MB} MB",
+                "Your manuscript",
                 type=list(ALLOWED_EXT),
                 key="f_upload",
             )
