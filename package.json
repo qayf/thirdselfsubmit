@@ -1,0 +1,17 @@
+{
+  "name": "third-self-submissions",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Writer submission form for the Third Self Project — accepts PDF/DOC/TXT uploads or pasted text.",
+  "type": "module",
+  "engines": { "node": ">=20.12" },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.js",
+    "dev": "node --env-file-if-exists=.env --watch server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.16"
+  }
+}

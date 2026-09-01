@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="light" />
+<meta name="theme-color" content="#F8F6EF" />
+<title>Submit your writing — Third Self Project</title>
+<meta name="description" content="Submit essays, stories, and field notes to the Third Self Project — a public-health project examining how digital environments shape desire, behavior, and identity." />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+<a class="skip-link" href="#submission-form">Skip to the form</a>
+
+<header class="site-header">
+  <div class="shell site-header__inner">
+    <a class="wordmark" href="https://thirdselfproject.org/">
+      <svg class="wordmark__eye" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <path d="M2 16s5.2-8.5 14-8.5S30 16 30 16s-5.2 8.5-14 8.5S2 16 2 16Z" stroke="#15232D" stroke-width="2" stroke-linejoin="round"/>
+        <circle cx="16" cy="16" r="4.25" fill="#B8D8ED" stroke="#15232D" stroke-width="2"/>
+      </svg>
+      <span>Third <em>Self</em> Project</span>
+    </a>
+    <div class="site-header__meta">
+      <a class="site-header__link" href="https://thirdselfproject.org/">← Back to the project</a>
+      <span class="site-header__est">EST. 2026</span>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="shell hero__grid">
+      <div>
+        <p class="section-label">Submissions / Open call</p>
+        <h1 class="hero__title">Someone has to <em class="mark-highlight">write it down.</em></h1>
+        <p class="hero__lede">
+          The Third Self Project publishes essays, stories, and field notes about how digital
+          environments shape what we desire, how we behave, and who we become. If you have been
+          paying attention, we want to read it.
+        </p>
+        <dl class="hero__facts">
+          <div class="hero__fact"><dt>Reading period</dt><dd>Rolling — always open</dd></div>
+          <div class="hero__fact"><dt>Response time</dt><dd>4–6 weeks</dd></div>
+          <div class="hero__fact"><dt>Length</dt><dd>800–5,000 words</dd></div>
+          <div class="hero__fact"><dt>Rights</dt><dd>First publication, then yours</dd></div>
+        </dl>
+      </div>
+
+      <aside class="figure-card">
+        <p class="figure-card__kicker"><span>Fig. 02</span><span>Before you send</span></p>
+        <h2 class="figure-card__title">What we&rsquo;re looking for</h2>
+        <ul class="checklist">
+          <li data-n="01">Writing rooted in something you actually observed — in yourself, in a room, in a feed.</li>
+          <li data-n="02">A piece that fits one of our five issues, or argues for a sixth.</li>
+          <li data-n="03">Finished drafts. We read the work, not the pitch.</li>
+          <li data-n="04">Any form: essay, story, reported piece, poem, or a short field note.</li>
+        </ul>
+        <p class="figure-card__caption">Fig. 02 / Send the draft, not the pitch</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="form-section" id="submission-form">
+    <div class="shell">
+      <div class="form-section__head">
+        <p class="section-label">Section 01 / The form</p>
+        <h2 class="form-section__title">Your <em>submission</em>.</h2>
+        <p class="form-section__note">
+          Upload a file or paste your piece directly — whichever is easier. Fields marked
+          <span class="field__req" aria-hidden="true">*</span> are required.
+        </p>
+      </div>
+
+      <div class="form-shell">
+        <form id="form" class="form" novalidate enctype="multipart/form-data">
+
+          <fieldset class="fieldset">
+            <legend class="visually-hidden">About you</legend>
+            <div class="fieldset__head" aria-hidden="true">
+              <span class="fieldset__num">01 / About you</span>
+              <span class="fieldset__title">Who&rsquo;s writing</span>
+            </div>
+
+            <div class="grid-2">
+              <div class="field" data-field="name">
+                <label class="field__label" for="name">Full name <span class="field__req">*</span></label>
+                <input class="input" type="text" id="name" name="name" maxlength="120" autocomplete="name" required />
+                <p class="field__error" id="name-error">Please tell us your name.</p>
+              </div>
+              <div class="field" data-field="email">
+                <label class="field__label" for="email">Email <span class="field__req">*</span></label>
+                <input class="input" type="email" id="email" name="email" maxlength="200" autocomplete="email" required aria-describedby="email-hint" />
+                <p class="field__hint" id="email-hint">This is where our reply goes.</p>
+                <p class="field__error" id="email-error">Please enter a valid email address.</p>
+              </div>
+            </div>
+
+            <div class="grid-2" style="margin-top: var(--space-m)">
+              <div class="field" data-field="pronouns">
+                <label class="field__label" for="pronouns">Pronouns <span class="field__optional">(optional)</span></label>
+                <input class="input" type="text" id="pronouns" name="pronouns" maxlength="60" placeholder="they/them" />
+              </div>
+              <div class="field" data-field="location">
+                <label class="field__label" for="location">Where you&rsquo;re based <span class="field__optional">(optional)</span></label>
+                <input class="input" type="text" id="location" name="location" maxlength="120" placeholder="City, country" />
+              </div>
+            </div>
+
+            <div class="field" style="margin-top: var(--space-m)" data-field="bio">
+              <label class="field__label" for="bio">Short bio <span class="field__optional">(optional)</span></label>
+              <textarea class="textarea textarea--short" id="bio" name="bio" maxlength="800" aria-describedby="bio-hint" placeholder="A sentence or two we can run alongside the piece."></textarea>
+              <p class="field__hint" id="bio-hint">Max 800 characters.</p>
+            </div>
+          </fieldset>
+
+          <fieldset class="fieldset">
+            <legend class="visually-hidden">About the piece</legend>
+            <div class="fieldset__head" aria-hidden="true">
+              <span class="fieldset__num">02 / About the piece</span>
+              <span class="fieldset__title">What you&rsquo;re sending</span>
+            </div>
+
+            <div class="field" data-field="title">
+              <label class="field__label" for="title">Title <span class="field__req">*</span></label>
+              <input class="input" type="text" id="title" name="title" maxlength="200" required />
+              <p class="field__error" id="title-error">Please give the piece a title — a working one is fine.</p>
+            </div>
+
+            <div class="grid-2" style="margin-top: var(--space-m)">
+              <div class="field" data-field="category">
+                <label class="field__label" for="category">Closest issue <span class="field__req">*</span></label>
+                <select class="select" id="category" name="category" required>
+                  <option value="">Choose one…</option>
+                  <option value="compulsion">01 — Compulsion</option>
+                  <option value="performance">02 — Performance</option>
+                  <option value="belonging">03 — Belonging</option>
+                  <option value="risk">04 — Risk</option>
+                  <option value="attention">05 — Attention</option>
+                  <option value="unsure">Not sure / something else</option>
+                </select>
+                <p class="field__error" id="category-error">Pick the closest fit — &ldquo;not sure&rdquo; is a real answer.</p>
+              </div>
+              <div class="field" data-field="form">
+                <label class="field__label" for="form-type">Form <span class="field__req">*</span></label>
+                <select class="select" id="form-type" name="form" required>
+                  <option value="">Choose one…</option>
+                  <option value="essay">Essay</option>
+                  <option value="story">Short story</option>
+                  <option value="field-note">Field note</option>
+                  <option value="reported">Reported piece</option>
+                  <option value="poetry">Poetry</option>
+                  <option value="other">Other</option>
+                </select>
+                <p class="field__error" id="form-error">Please choose a form.</p>
+              </div>
+            </div>
+
+            <div class="field" style="margin-top: var(--space-m)" data-field="published">
+              <label class="field__label" for="published">Has this been published before? <span class="field__optional">(optional)</span></label>
+              <input class="input" type="text" id="published" name="published" maxlength="300" placeholder="No — or paste the link" />
+            </div>
+
+            <div class="field" style="margin-top: var(--space-m)" data-field="notes">
+              <label class="field__label" for="notes">Anything we should know <span class="field__optional">(optional)</span></label>
+              <textarea class="textarea textarea--short" id="notes" name="notes" maxlength="1500" placeholder="Context, content warnings, simultaneous submissions, a deadline you're working against."></textarea>
+            </div>
+
+            <div class="check" style="margin-top: var(--space-s)">
+              <input type="checkbox" id="sensitive" name="sensitive" value="yes" />
+              <label class="check__text" for="sensitive">
+                This piece contains material about self-harm, addiction, or explicit sexual content.
+                <span class="field__hint">Flagging it helps us edit it with care. It does not count against you.</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="fieldset">
+            <legend class="visually-hidden">The work</legend>
+            <div class="fieldset__head" aria-hidden="true">
+              <span class="fieldset__num">03 / The work</span>
+              <span class="fieldset__title">The piece itself</span>
+            </div>
+
+            <div class="segmented" role="tablist" aria-label="How would you like to send your work?">
+              <button type="button" class="segmented__btn" role="tab" id="tab-file" aria-controls="panel-file" aria-selected="true">Upload a file</button>
+              <button type="button" class="segmented__btn" role="tab" id="tab-text" aria-controls="panel-text" aria-selected="false">Paste the text</button>
+            </div>
+            <input type="hidden" name="mode" id="mode" value="file" />
+
+            <div class="mode-panel" id="panel-file" role="tabpanel" aria-labelledby="tab-file" tabindex="0">
+              <div class="field" data-field="file">
+                <div class="dropzone" id="dropzone">
+                  <svg class="dropzone__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                    <rect x="8" y="4" width="24" height="30" stroke="#15232D" stroke-width="2"/>
+                    <path d="M13 13h14M13 19h14M13 25h9" stroke="#15232D" stroke-width="1.5"/>
+                    <path d="M20 36V24m0 12-4-4m4 4 4-4" stroke="#EC7357" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <p class="dropzone__headline">Drop your file here, or choose one</p>
+                  <p class="dropzone__sub">PDF, DOC, DOCX, TXT, RTF, or MD — up to 10 MB</p>
+                  <input type="file" id="file" name="file" accept=".pdf,.doc,.docx,.txt,.rtf,.md,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain,application/rtf,text/markdown" aria-label="Choose a file to upload" />
+                </div>
+                <div class="file-chip" id="file-chip">
+                  <div>
+                    <p class="file-chip__name" id="file-name"></p>
+                    <p class="file-chip__meta" id="file-meta"></p>
+                  </div>
+                  <button type="button" class="file-chip__remove" id="file-remove">Remove</button>
+                </div>
+                <p class="field__error" id="file-error">Please attach a file, or switch to pasting the text.</p>
+              </div>
+            </div>
+
+            <div class="mode-panel" id="panel-text" role="tabpanel" aria-labelledby="tab-text" tabindex="0" hidden>
+              <div class="field" data-field="text">
+                <label class="field__label" for="text">Paste your piece</label>
+                <textarea class="textarea" id="text" name="text" maxlength="120000" aria-describedby="text-counter" placeholder="Paste the full text here. Formatting is fine — we'll keep the line breaks."></textarea>
+                <div class="counter" id="text-counter">
+                  <span id="word-count">0 words</span>
+                  <span id="char-count">0 / 120,000 characters</span>
+                </div>
+                <p class="field__error" id="text-error">Please paste at least a few sentences, or switch to uploading a file.</p>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="fieldset">
+            <legend class="visually-hidden">Consent</legend>
+            <div class="fieldset__head" aria-hidden="true">
+              <span class="fieldset__num">04 / Consent</span>
+              <span class="fieldset__title">The fine print</span>
+            </div>
+
+            <div class="check" data-field="original">
+              <input type="checkbox" id="original" name="original" value="yes" required />
+              <label class="check__text" for="original">
+                This is my own work and I hold the rights to it. <span class="field__req">*</span>
+                <span class="field__error" id="original-error">We can only read work you hold the rights to.</span>
+              </label>
+            </div>
+
+            <div class="check" data-field="terms">
+              <input type="checkbox" id="terms" name="terms" value="yes" required />
+              <label class="check__text" for="terms">
+                I understand that sending work is not a guarantee of publication, and that the
+                project may reply with edits or with a no. <span class="field__req">*</span>
+                <span class="field__error" id="terms-error">Please confirm you understand before sending.</span>
+              </label>
+            </div>
+
+            <div class="check">
+              <input type="checkbox" id="newsletter" name="newsletter" value="yes" />
+              <label class="check__text" for="newsletter">
+                Keep me on the contributor list — occasional calls for work, no more than monthly.
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="honeypot" aria-hidden="true">
+            <label for="website">Leave this field empty</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="submit-row">
+            <button type="submit" class="btn" id="submit">Send submission <span aria-hidden="true">→</span></button>
+            <p class="submit-note">Your file goes straight to the project&rsquo;s own server. We read everything and reply to everyone.</p>
+          </div>
+          <p class="form-status" id="status" role="alert" aria-live="assertive"></p>
+        </form>
+
+        <div class="receipt" id="receipt" hidden tabindex="-1">
+          <p class="receipt__kicker">Submission received / <span id="receipt-date"></span></p>
+          <h2 class="receipt__title">Thank you. It&rsquo;s <em>in our hands</em> now.</h2>
+          <p class="receipt__body">
+            We read every submission ourselves, and we reply to every one — usually within four to
+            six weeks. Keep the reference below in case you need to write to us about it.
+          </p>
+          <p class="receipt__ref" id="receipt-ref"></p>
+          <div class="receipt__actions">
+            <button type="button" class="receipt__link" id="another">Send another piece</button>
+            <a class="receipt__link" href="https://thirdselfproject.org/">Back to the project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="shell site-footer__inner">
+    <span>Third Self Project — a public-health project for digital life</span>
+    <span>Questions? <a href="mailto:submissions@thirdselfproject.org">submissions@thirdselfproject.org</a></span>
+  </div>
+</footer>
+
+<script src="/app.js" defer></script>
+</body>
+</html>
